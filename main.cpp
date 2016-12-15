@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 #include <exception>
+#include <cstdlib>
 
 using namespace std;
 
@@ -35,7 +36,6 @@ void print_out::printabit(void) {
 // }
 
 string try_to_open_file(string filename) {
-	cout << "This is filename: " << filename << endl;
 	ifstream file;
 	file.exceptions(ifstream::failbit);
 	try {
@@ -51,15 +51,12 @@ string try_to_open_file(string filename) {
 	}
 }
 
-int main(void) {
-	cout << "Start" << endl;
-	// GET USER INPUT FROM COMMAND LINE
-
-	// ofstream file;
-	// file.open("test.txt");
-	// file << "Write to file\n";
-	// file.close();
-	string contents = try_to_open_file("tes.txt");
+int main(int argc, char *argv[]) {
+	if (argc != 2) {
+		cout << "Usage: ./PCP <filename>" << endl;
+		exit(EXIT_FAILURE);
+	}
+	string contents = try_to_open_file(argv[1]);
 	cout << "This is contents: " << contents;
 	cout << "Done" << endl;
 	return 0;
