@@ -1,6 +1,6 @@
 CC = g++
 
-CFLAGS = -Wall -Wextra -std=c++11 -O3 -g
+CFLAGS = -std=c++11 -Wall -Wextra -O3 -g
 
 .PHONY: all clean
 
@@ -10,6 +10,7 @@ PCP: main.o
 	$(CC) $(CFLAGS) $^ -o PCP
 
 main.o: main.cpp
+	$(CC) $(CFLAGS) -c main.cpp
 
 clean:
 	rm *.o
