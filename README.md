@@ -25,7 +25,9 @@ etc...
 
 ### Compiling
 
-Simply run make to compile then ./PCP to run.
+Simply run make to compile then ./PCP <filename> to run.
+
+filename must have .txt or .csv extension.
 
 ## Contribution
 
