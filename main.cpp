@@ -1,3 +1,18 @@
+/*
+ * PostalCode Parser
+ * Copyright (C) 2016  Author: Elliott Sobek
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
+
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -5,36 +20,9 @@
 #include <cstdlib>
 #include <regex>
 
+#include "menu.hpp"
+
 using namespace std;
-
-class print_out {
-	string str;
-
-	public:
-		void printabit(void);
-};
-
-void print_out::printabit(void) {
-	cout << "Hey bob" << endl;
-}
-
-// class Control {
-// 	private:
-// 		Point m_position;
-// 		Size m_size;
-// }
-
-// class Button : public Control {
-// 	private:
-// 		std::string m_label
-// }
-
-// class Slider : public Control {
-// 	private:
-// 		int m_minValue;
-// 		int m_maxValue;
-// 		int m_currentValue;
-// }
 
 string try_to_open_file(string filename) {
 	ifstream file;
@@ -54,7 +42,7 @@ string try_to_open_file(string filename) {
 
 bool is_correct_extension(string filename) {
 	// Any filename with a .txt or .csv file extension
-	regex target_extension("[0-9A-Za-z]+\\.?(txt|csv)");
+	regex target_extension("([0-9A-Za-z]\\w+)\\.?(txt|csv)");
 	return regex_match(filename, target_extension);
 }
 
@@ -68,8 +56,6 @@ int main(int argc, char *argv[]) {
 		exit(EXIT_FAILURE);
 	}
 	string contents = try_to_open_file(argv[1]);
-	cout << "This is contents: " << contents;
-	// CREATE MENU
-	cout << "Done" << endl;
+	main_menu();
 	return 0;
 }
