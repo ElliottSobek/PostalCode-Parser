@@ -35,8 +35,8 @@ string try_to_open_file(string filename) {
 		file.close();
 		return content;
 	} catch (exception &e) {
-		cout << "File does not exist" << endl;
-		return "";
+		cerr << "File does not exist: " << e.what() << endl;
+		exit(EXIT_FAILURE);
 	}
 }
 
@@ -48,11 +48,11 @@ bool is_correct_extension(string filename) {
 
 int main(int argc, char *argv[]) {
 	if (argc != 2) {
-		cout << "Usage: ./PCP <filename>" << endl;
+		cerr << "Usage: ./PCP <filename>" << endl;
 		exit(EXIT_FAILURE);
 	}
 	if (!is_correct_extension(argv[1])) {
-		cout << "Unable to parse file" << endl;
+		cerr << "Unable to parse file" << endl;
 		exit(EXIT_FAILURE);
 	}
 	string contents = try_to_open_file(argv[1]);
