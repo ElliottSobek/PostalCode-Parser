@@ -10,7 +10,7 @@ PCP is an object oriented postal code package statistical generator given a list
 
 ### Input file format
 
-The input file format is any .txt file following this format.
+The input file format is any .txt file following this format. The DATE field is formatted to MMM-DD-YYYY.
 
 DATE
 
