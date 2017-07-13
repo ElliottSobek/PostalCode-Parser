@@ -46,7 +46,7 @@ bool is_correct_extension(string filename) {
 	return regex_match(filename, target_extension);
 }
 
-int main(int argc, char *argv[]) {
+int main(const int argc, char *const argv[]) {
 	if (argc != 2) {
 		cerr << "Usage: ./PCP <filename>" << endl;
 		exit(EXIT_FAILURE);

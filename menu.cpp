@@ -25,7 +25,7 @@ int get_user_input(void) {
 	return input;
 }
 
-bool is_valid_bounds(int input, int upperbound, int lowerbound) {
+bool is_valid_bounds(const int input, const int upperbound, const int lowerbound) {
 	return ((input <= upperbound) && (input >= lowerbound));
 }
 
