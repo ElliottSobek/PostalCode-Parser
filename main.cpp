@@ -13,12 +13,12 @@
  * GNU General Public License for more details.
  */
 
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <exception>
-#include <cstdlib>
 #include <regex>
+#include <string>
+#include <cstdlib>
+#include <fstream>
+#include <iostream>
+#include <exception>
 
 #include "menu.hpp"
 
@@ -31,7 +31,7 @@ string try_to_open_file(string filename) {
 		file.open(filename.c_str());
 		string content;
 		content.assign((istreambuf_iterator<char>(file))
-			, (istreambuf_iterator<char>()));
+					  , (istreambuf_iterator<char>()));
 		file.close();
 		return content;
 	} catch (exception &e) {
@@ -51,11 +51,14 @@ int main(int argc, char *argv[]) {
 		cerr << "Usage: ./PCP <filename>" << endl;
 		exit(EXIT_FAILURE);
 	}
+
 	if (!is_correct_extension(argv[1])) {
 		cerr << "Unable to parse file" << endl;
 		exit(EXIT_FAILURE);
 	}
+
 	string contents = try_to_open_file(argv[1]);
+
 	main_menu();
-	return 0;
+	return EXIT_SUCCESS;
 }
