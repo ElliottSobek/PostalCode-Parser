@@ -25,23 +25,25 @@ int get_user_input(void) {
 	return input;
 }
 
-bool is_valid_bounds(int input, int upperbound, int lowerbound) {
+bool is_valid_bounds(const int input, const int upperbound, const int lowerbound) {
 	return ((input <= upperbound) && (input >= lowerbound));
 }
 
 void print_menu(void) {
 	cout << "1. General stats\n"
-		"2. WIP\n"
-		"3. WIP\n"
-		"4. WIP\n"
-		"0. Exit" << endl;
+			"2. WIP\n"
+			"3. WIP\n"
+			"4. WIP\n"
+			"0. Exit" << endl;
 }
 
 void main_menu(void) {
 	int input;
+
 	while (1) {
 		print_menu();
 		input = get_user_input();
+
 		while (!is_valid_bounds(input, 4, 0)) {
 			cout << "Invalid menu option" << endl;
 			print_menu();
