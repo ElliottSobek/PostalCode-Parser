@@ -13,7 +13,7 @@
 
 CC = g++
 
-CFLAGS = -std=c++11 -Wall -Wextra -O3 -g
+CFLAGS = -std=c++11 -Wall -Wextra -Wpedantic -O3 -g
 
 .PHONY: all clean
 
@@ -23,10 +23,8 @@ PCP: main.o menu.o
 	$(CC) $(CFLAGS) $^ -o PCP
 
 main.o: main.cpp
-	$(CC) $(CFLAGS) -c main.cpp
 
 menu.o: menu.cpp
-	$(CC) $(CFLAGS) -c menu.cpp
 
 clean:
-	rm *.o
+	$(RM) *.o
